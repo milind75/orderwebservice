@@ -14,8 +14,9 @@ env:
   IMAGE_NAME: milind75/orderwebservice
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: "014848113228"
-  ECR_REPOSITORY: orderservice/rabitqproducer
+  ECR_REPOSITORY: orderwebservice
   ECR_REGISTRY: 014848113228.dkr.ecr.us-east-1.amazonaws.com
+  EKS_CLUSTER_NAME: my-eks
 
 jobs:
   build-and-test:
@@ -52,6 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-test  # only runs if build-and-test passes
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    outputs:
+      image-tag: ${{ steps.image-tag.outputs.TAG }}
 
     steps:
       - name: ✅ Checkout Code
