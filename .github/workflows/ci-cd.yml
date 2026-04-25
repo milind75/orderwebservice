@@ -14,7 +14,7 @@ env:
   IMAGE_NAME: milind75/orderwebservice
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: "014848113228"
-  ECR_REPOSITORY: orderwebservice
+  ECR_REPOSITORY: orderwebservice/ordercreation
   ECR_REGISTRY: 014848113228.dkr.ecr.us-east-1.amazonaws.com
   EKS_CLUSTER_NAME: my-eks
 
